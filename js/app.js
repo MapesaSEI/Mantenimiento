@@ -56,7 +56,9 @@ const CATALOGO = [
         id: 'otramarca',
         nombre: 'Robotech',
         modelos: [
-            { id: 'om_m1', nombre: '3000 PGS', imagen: null, puntos: [] },
+            { id: 'om_m1', nombre: '3000 PGS', imagen: null, puntos: [
+                { id: 'p1',  nombre: 'Punto 1',  x: 95.02, y: 26.32 }
+            ] },
             { id: 'om_m2', nombre: 'Modelo 2', imagen: null, puntos: [] }
         ]
     }
