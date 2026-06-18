@@ -145,12 +145,13 @@ function render() {
         }
 
         if (session && nav.serialActivo) {
-            if (window.innerWidth > 480) {
-                renderPuntosSobreImagen(photoWrap, modelo);
-            }
            if (window.innerWidth <= 480 || !modelo.imagen) {
             renderPuntosLista(listaPuntos, modelo);
            }
+            if (window.innerWidth > 480) {
+                renderPuntosSobreImagen(photoWrap, modelo);
+            }
+           
             listaPuntos.classList.add('has-points');
             actionBar.classList.add('open');
         }
