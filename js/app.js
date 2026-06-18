@@ -58,7 +58,7 @@ const CATALOGO = [
         modelos: [
             { id: 'om_m1', 
             nombre: '3000 PGS', 
-            imagen: 'imagenes/robotech-3000pgs', 
+            imagen: 'imagenes/robotech-3000pgs.jpg', 
             puntos: [
                 { id: 'p1',  nombre: 'Punto 1',  x: 50, y: 50 },
             ] },
