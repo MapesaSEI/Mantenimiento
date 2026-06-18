@@ -148,10 +148,7 @@ function render() {
            if (window.innerWidth <= 480 || !modelo.imagen) {
             renderPuntosLista(listaPuntos, modelo);
            }
-            if (window.innerWidth > 480) {
-                renderPuntosSobreImagen(photoWrap, modelo);
-            }
-           
+            renderPuntosSobreImagen(photoWrap, modelo);
             listaPuntos.classList.add('has-points');
             actionBar.classList.add('open');
         }
