@@ -58,7 +58,8 @@ const CATALOGO = [
         modelos: [
             { id: 'om_m1', 
             nombre: '3000 PGS', 
-            imagen: 'imagenes/robotech-3000pgs.jpg', 
+            //imagen: 'imagenes/robotech-3000pgs.jpg', 
+             imagen: null,
             puntos: [
                 { id: 'p1',  nombre: 'Punto 1',  x: 50, y: 50 },
             ] },
@@ -147,7 +148,9 @@ function render() {
             if (window.innerWidth > 480) {
                 renderPuntosSobreImagen(photoWrap, modelo);
             }
+           if (window.innerWidth <= 480 || !modelo.imagen) {
             renderPuntosLista(listaPuntos, modelo);
+           }
             listaPuntos.classList.add('has-points');
             actionBar.classList.add('open');
         }
@@ -277,7 +280,7 @@ function iniciarRevision() {
     if (session && !confirm('Hay una revisión en curso. ¿Iniciar nueva?')) return;
 
     const modelo = getModelo(nav.marcaId, nav.modeloId);
-    if (!modelo.puntos.length) {
+    if (!modelo.puntos.length && modelo.imagen) {
         toast('Este modelo aún no tiene puntos de revisión configurados');
         return;
     }
@@ -346,8 +349,7 @@ function renderPuntosSobreImagen(photoWrap, modelo) {
    LISTA DE PUNTOS (móvil) — alternativa a los pins
 ══════════════════════════════════════════════════ */
 function renderPuntosLista(container, modelo) {
-    if (!modelo || !modelo.puntos.length || !session) return;
-
+    if (!modelo || !session) return;
     container.innerHTML = modelo.puntos.map((pDef, i) => {
         const pSess = session.puntos.find(x => x.id === pDef.id);
         const status = pSess ? pSess.status : null;
