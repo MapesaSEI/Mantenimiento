@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/0d26e017b7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Mantenimiento</title>
+</head>
+<body>
+
+    <div class="app-layout">
+
+        <!-- Sidebar de navegación -->
+        <div class="list" id="sidebar"></div>
+
+        <!-- Área central: foto de la máquina + puntos OK/NOOK -->
+        <div class="machine" id="machine-area">
+            <div class="photo-wrap" id="photo-wrap" style="display:none;">
+                <img id="machine-img" src="" alt="">
+                <!-- Los pins OK/NOOK se insertan aquí dinámicamente -->
+            </div>
+
+            <!-- Lista de puntos para móvil — sustituye a los pins en pantallas pequeñas -->
+            <div class="puntos-lista" id="puntos-lista"></div>
+        </div>
+    </div>
+
+    <!-- Popover de punto individual -->
+    <div class="punto-popover" id="punto-popover">
+        <div class="punto-popover-title">
+            <input id="pp-name" type="text" oninput="popSetNombre(this.value)">
+            <button class="pp-close" onclick="closePuntoPopover()">&times;</button>
+        </div>
+        <div class="punto-popover-btns">
+            <button class="pp-btn ok"   id="pp-ok"   onclick="popSetStatus('ok')">OK</button>
+            <button class="pp-btn nook" id="pp-nook"  onclick="popSetStatus('nook')">NO OK</button>
+        </div>
+        <textarea class="pp-obs" id="pp-obs" rows="2" placeholder="Observaciones..."
+                  oninput="popSetObs(this.value)"></textarea>
+    </div>
+
+    <!-- Barra guardar / cancelar -->
+    <div class="action-bar" id="action-bar">
+        <button class="action-btn btn-cancelar" onclick="cancelarRevision()">Cancelar</button>
+        <button class="action-btn btn-guardar"  onclick="guardarRevision()">Guardar revisión</button>
+    </div>
+
+    <!-- Botones exportar / importar -->
+    <div class="data-btns">
+        <button class="data-btn" onclick="exportData()">&#11015; Exportar JSON</button>
+        <label class="data-btn" style="cursor:pointer">
+            &#11014; Importar JSON
+            <input type="file" accept=".json" style="display:none" onchange="importData(event)">
+        </label>
+    </div>
+
+    <!-- Modal detalle historial -->
+    <div class="modal-backdrop" id="modal-backdrop" onclick="closeModal()">
+        <div class="modal-box" onclick="event.stopPropagation()">
+            <h3 id="modal-title"></h3>
+            <div id="modal-points"></div>
+            <button class="modal-close" onclick="closeModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Toast notifications -->
+    <div class="toast-wrap" id="toast-wrap"></div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
