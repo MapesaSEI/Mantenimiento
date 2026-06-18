@@ -281,7 +281,7 @@ body {
 /* ══════════════════════════════════════════
    BOTONES EXPORTAR / IMPORTAR
 ══════════════════════════════════════════ */
-.data-btns { position: fixed; top: 12px; right: 14px; z-index: 50; display: flex; gap: 8px; }
+.data-btns { position: fixed; top: 12px; right: 30%; z-index: 50; display: flex; gap: 8px; }
 .data-btn { background: white; border: 1px solid rgb(180,180,180); border-radius: 10px; padding: 6px 12px; font-family: inherit; font-size: 11px; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,.08); display: flex; align-items: center; gap: 6px; white-space: nowrap; }
 .data-btn:hover { background: rgb(245,245,245); }
 
