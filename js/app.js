@@ -335,7 +335,7 @@ function renderPinsSobreImagen(photoWrap, modelo) {
 
   modelo.puntos.forEach((pDef, i) => {
     const pSess = session.puntos.find(x => x.id === pDef.id);
-
+    if (pDef.x === null || pDef.y === null) return; // saltar puntos sin coordenadas
     const pin = document.createElement('div');
     pin.className = 'oknok ' + statusClass(pSess ? pSess.status : null);
     pin.textContent = statusLabel(pSess ? pSess.status : null);
