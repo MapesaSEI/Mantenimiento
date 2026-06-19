@@ -225,7 +225,7 @@ function renderSeries(sb) {
       const snRecs = records.filter(r => r.serial === sn);
       const ultimo = snRecs[0]; // el mas reciente (estan ordenados por fecha desc)
       const oks = ultimo.puntos.filter(p => p.status === 'ok').length;
-      const nooks = ultimo.puntos.filter(p => p.status === 'nook').length;
+      const nooks = ultimo.puntos.filter(p => p.status === 'no ok').length;
       const pend = ultimo.puntos.length - oks - nooks;
 
       const btn = document.createElement('button');
@@ -234,7 +234,7 @@ function renderSeries(sb) {
                 <span style="flex:1;font-weight:500">${esc(sn)}</span>
                 <div class="hist-badges">
                     ${oks > 0 ? `<span class="hb hb-ok">${oks}&nbsp;OK</span>` : ''}
-                    ${nooks > 0 ? `<span class="hb hb-nook">${nooks}&nbsp;NOK</span>` : ''}
+                    ${nooks > 0 ? `<span class="hb hb-nook">${nooks}&nbsp;NO OK</span>` : ''}
                     ${pend > 0 ? `<span class="hb hb-pend">${pend}&nbsp;-</span>` : ''}
                 </div>
                 <span class="hist-date">${formatDate(ultimo.date).split(' ')[0]}</span>`;
