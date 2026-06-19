@@ -230,18 +230,21 @@ body {
 }
 
 .oknok.state-ok {
-  background-color: rgb(0, 200, 80);
-  color: black;
+  background: rgb(220, 255, 230);
+  color: rgb(0, 140, 60);
+  border-color: rgb(0, 180, 80);
 }
 
 .oknok.state-nook {
-  background-color: rgb(220, 50, 50);
-  color: white;
+  background: rgb(255, 220, 220);
+  color: rgb(180, 30, 30);
+  border-color: rgb(220, 50, 50);
 }
 
 .oknok.state-none {
-  background-color: rgb(0, 255, 0);
-  color: black;
+  background: rgb(220, 255, 230);
+  color: rgb(0, 140, 60);
+  border-color: rgb(0, 180, 80);
 }
 
 
