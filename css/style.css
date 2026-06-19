@@ -139,12 +139,10 @@ body {
   right: 14px;
   z-index: 50;
   display: flex;
+  flex-direction: column !important;
+  justify-content: end !important;
+  align-items: center !important;
   gap: 8px;
-}
-
-!important .data-btns-fixed {
-  justify-content: end;
-  align-items: center;
 }
 
 .data-btn {
