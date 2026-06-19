@@ -3,70 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Iconos (chevron del boton Volver) -->
     <script src="https://kit.fontawesome.com/0d26e017b7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <title>Mantenimiento</title>
 </head>
 <body>
 
-    <div class="app-layout">
+<div class="app-layout">
 
-        <!-- Sidebar de navegación -->
-        <div class="list" id="sidebar"></div>
+    <!-- Sidebar de navegacion (marcas > modelos > series + historial) -->
+    <!-- Los botones Exportar/Importar se renderizan dentro de la sidebar desde JS -->
+    <div class="list" id="sidebar"></div>
 
-        <!-- Área central: foto de la máquina + puntos OK/NOOK -->
-        <div class="machine" id="machine-area">
-            <div class="photo-wrap" id="photo-wrap" style="display:none;">
-                <img id="machine-img" src="" alt="">
-                <!-- Los pins OK/NOOK se insertan aquí dinámicamente -->
-            </div>
+    <!-- Area central: foto de la maquina con pins, o lista de puntos -->
+    <div class="machine" id="machine-area">
 
-            <!-- Lista de puntos para móvil — sustituye a los pins en pantallas pequeñas -->
-            <div class="puntos-lista" id="puntos-lista"></div>
+        <!-- Envuelve la imagen. Los pins se insertan aqui como hijos con position:absolute -->
+        <div class="photo-wrap" id="photo-wrap" style="display:none;">
+            <img id="machine-img" src="" alt="">
         </div>
+
+        <!-- Lista de puntos (visible cuando no hay imagen o en movil) -->
+        <div class="puntos-lista" id="puntos-lista"></div>
+
     </div>
+</div>
 
-    <!-- Popover de punto individual -->
-    <div class="punto-popover" id="punto-popover">
-        <div class="punto-popover-title">
-            <input id="pp-name" type="text" oninput="popSetNombre(this.value)">
-            <button class="pp-close" onclick="closePuntoPopover()">&times;</button>
-        </div>
-        <div class="punto-popover-btns">
-            <button class="pp-btn ok"   id="pp-ok"   onclick="popSetStatus('ok')">OK</button>
-            <button class="pp-btn nook" id="pp-nook"  onclick="popSetStatus('nook')">NO OK</button>
-        </div>
-        <textarea class="pp-obs" id="pp-obs" rows="2" placeholder="Observaciones..."
-                  oninput="popSetObs(this.value)"></textarea>
+
+<!-- Popover de punto: aparece al pulsar un pin o una fila de la lista -->
+<div class="punto-popover" id="punto-popover">
+    <div class="punto-popover-title">
+        <!-- Nombre del punto, editable directamente -->
+        <input id="pp-name" type="text" oninput="popSetNombre(this.value)" placeholder="Nombre del punto">
+        <button class="pp-close" onclick="closePuntoPopover()">&times;</button>
     </div>
-
-    <!-- Barra guardar / cancelar -->
-    <div class="action-bar" id="action-bar">
-        <button class="action-btn btn-cancelar" onclick="cancelarRevision()">Cancelar</button>
-        <button class="action-btn btn-guardar"  onclick="guardarRevision()">Guardar revisión</button>
+    <div class="punto-popover-btns">
+        <button class="pp-btn ok"   id="pp-ok"   onclick="popSetStatus('ok')">OK</button>
+        <button class="pp-btn nook" id="pp-nook"  onclick="popSetStatus('nook')">NO OK</button>
     </div>
+    <!-- Campo libre para observaciones -->
+    <textarea class="pp-obs" id="pp-obs" rows="2"
+              placeholder="Observaciones..."
+              oninput="popSetObs(this.value)"></textarea>
+</div>
 
-    <!-- Botones exportar / importar -->
-    <div class="data-btns">
-        <button class="data-btn" onclick="exportData()">&#11015; Exportar JSON</button>
-        <label class="data-btn" style="cursor:pointer">
-            &#11014; Importar JSON
-            <input type="file" accept=".json" style="display:none" onchange="importData(event)">
-        </label>
+
+<!-- Barra de Guardar / Cancelar (visible solo durante una revision activa) -->
+<div class="action-bar" id="action-bar">
+    <button class="action-btn btn-cancelar" onclick="cancelarRevision()">Cancelar</button>
+    <button class="action-btn btn-guardar"  onclick="guardarRevision()">Guardar revision</button>
+</div>
+
+
+<!-- Botones exportar/importar: fijos en esquina superior derecha en escritorio,
+     y al final de la sidebar en movil (via CSS) -->
+<div class="data-btns-fixed" id="data-btns-fixed">
+    <button class="data-btn" onclick="exportData()">&#11015; Exportar</button>
+    <label class="data-btn" style="cursor:pointer">
+        &#11014; Importar
+        <input type="file" accept=".json" style="display:none" onchange="importData(event)">
+    </label>
+</div>
+
+<!-- Modal de detalle del historial -->
+<div class="modal-backdrop" id="modal-backdrop" onclick="closeModal()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+        <h3 id="modal-title"></h3>
+        <div id="modal-points"></div>
+        <button class="modal-close" onclick="closeModal()">Cerrar</button>
     </div>
+</div>
 
-    <!-- Modal detalle historial -->
-    <div class="modal-backdrop" id="modal-backdrop" onclick="closeModal()">
-        <div class="modal-box" onclick="event.stopPropagation()">
-            <h3 id="modal-title"></h3>
-            <div id="modal-points"></div>
-            <button class="modal-close" onclick="closeModal()">Cerrar</button>
-        </div>
-    </div>
 
-    <!-- Toast notifications -->
-    <div class="toast-wrap" id="toast-wrap"></div>
+<!-- Contenedor para mensajes toast temporales -->
+<div class="toast-wrap" id="toast-wrap"></div>
 
-    <script src="js/app.js"></script>
+
+<script src="js/app.js"></script>
 </body>
 </html>
