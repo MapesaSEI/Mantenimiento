@@ -800,6 +800,8 @@ body {
   .machine {
     padding: 16px;
     padding-bottom: 80px;
+    margin-left: 0px;
+    margin-top: 40vh;
     /* espacio para que la barra de guardar no tape el contenido */
     min-height: auto;
   }
@@ -820,10 +822,6 @@ body {
     bottom: 70px;
     /* encima de la barra de guardar */
     right: 8px;
-  }
-
-  .machine {
-    margin-left: 0px;
   }
 }
 
