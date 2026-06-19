@@ -10,6 +10,7 @@ html {
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  corner-shape: squircle;
 }
 
 html::-webkit-scrollbar {
@@ -819,7 +820,7 @@ body {
        Los bajamos al area de maquina, esquina superior derecha de ese area. */
   .data-btns-fixed {
     top: auto;
-    bottom: 70px;
+    bottom: 59px;
     /* encima de la barra de guardar */
     right: 8px;
   }
@@ -874,7 +875,7 @@ body {
 
   /* Botones de datos aun mas pequenos en movil */
   .data-btns-fixed {
-    bottom: 120px;
+    bottom: 110px;
     right: 8px;
     top: auto;
     flex-direction: column;
