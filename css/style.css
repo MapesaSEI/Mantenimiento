@@ -139,6 +139,8 @@ body {
   right: 14px;
   z-index: 50;
   display: flex;
+  justify-content: end;
+  align-items: center;
   gap: 8px;
 }
 
