@@ -178,6 +178,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-left: 280px;
   padding: 24px;
   position: relative;
 }
@@ -819,6 +820,10 @@ body {
     bottom: 70px;
     /* encima de la barra de guardar */
     right: 8px;
+  }
+
+  .machine {
+    margin-left: 0px;
   }
 }
 
