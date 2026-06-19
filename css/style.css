@@ -10,7 +10,6 @@ html {
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  corner-shape: squircle;
 }
 
 html::-webkit-scrollbar {
