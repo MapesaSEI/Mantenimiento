@@ -139,9 +139,12 @@ body {
   right: 14px;
   z-index: 50;
   display: flex;
+  gap: 8px;
+}
+
+!important .data-btns-fixed {
   justify-content: end;
   align-items: center;
-  gap: 8px;
 }
 
 .data-btn {
