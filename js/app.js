@@ -396,7 +396,7 @@ function statusClass(s) {
 
 function statusLabel(s) {
   if (s === 'ok') return 'OK';
-  if (s === 'nook') return 'NOOK';
+  if (s === 'nook') return 'NO OK';
   return 'OK'; // texto por defecto cuando no hay estado
 }
 

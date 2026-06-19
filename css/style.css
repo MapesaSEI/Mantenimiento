@@ -47,7 +47,7 @@ body {
 .list {
   width: 280px;
   flex-shrink: 0;
-  min-height: 100vh;
+  height: 100vh;
   background-color: white;
   border: solid 1px rgb(100, 100, 100);
   border-radius: 0 25px 25px 0;
@@ -58,7 +58,7 @@ body {
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  position: relative;
+  position: fixed;
   z-index: 10;
 }
 
@@ -178,6 +178,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-left: 280px;
   padding: 24px;
   position: relative;
 }
@@ -363,7 +364,7 @@ body {
 /* Cabecera: nombre editable + boton cerrar */
 .punto-popover-title {
   font-weight: 600;
-  color: rgb(50, 50, 50);
+  color: rgb(100, 100, 100);
   font-size: 15px;
   display: flex;
   justify-content: space-between;
@@ -403,12 +404,15 @@ body {
 }
 
 .pp-btn.ok {
-  background: rgb(0, 200, 80);
+  background: rgb(220, 255, 230);
+  color: rgb(0, 140, 60);
+  border-color: rgb(0, 180, 80);
 }
 
 .pp-btn.nook {
-  background: rgb(220, 50, 50);
-  color: white;
+  background: rgb(255, 220, 220);
+  color: rgb(180, 30, 30);
+  border-color: rgb(220, 50, 50);
 }
 
 .pp-btn.active {
@@ -705,6 +709,7 @@ body {
   cursor: pointer;
   border: 1.5px solid black;
   transition: opacity 0.15s;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
 }
 
 .action-btn:hover {
@@ -712,11 +717,15 @@ body {
 }
 
 .btn-guardar {
-  background: rgb(0, 200, 80);
+  background: rgb(160, 255, 180);
+  border-color: rgb(0, 110, 50);
+  color: rgb(0, 110, 50);
 }
 
 .btn-cancelar {
   background: rgb(240, 240, 240);
+  border-color: rgb(100, 100, 100);
+  color: rgb(100, 100, 100);
 }
 
 
