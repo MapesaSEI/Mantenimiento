@@ -72,7 +72,7 @@ const CATALOGO = [
         // Pendiente de colocar los puntos sobre la foto.
         // Mientras tanto funciona en modo lista.
         puntos: [
-          { id: 'p1', nombre: 'Punto 1', x: 50, y: 50 },
+          { id: 'p1', nombre: 'Punto 1', x: null, y: null },
         ]
       },
       {
