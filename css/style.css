@@ -135,7 +135,7 @@ body {
 /* Botones exportar/importar: fijos en esquina superior derecha */
 .data-btns-fixed {
   position: fixed;
-  top: 12px;
+  bottom: 12px;
   right: 14px;
   z-index: 50;
   display: flex;
