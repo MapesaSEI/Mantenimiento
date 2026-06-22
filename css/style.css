@@ -802,7 +802,7 @@ body {
   .list {
     width: 100%;
     min-height: auto;
-    max-height: 40vh;
+    max-height: 30vh;
     border-radius: 0 0 25px 25px;
     /* solo esquinas inferiores redondeadas */
     flex-direction: column;
@@ -853,7 +853,7 @@ body {
 
 @media (max-width: 480px) {
   .list {
-    max-height: 45vh;
+    max-height: 30vh;
   }
 
   .back,
