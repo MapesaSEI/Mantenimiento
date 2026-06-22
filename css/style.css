@@ -728,6 +728,17 @@ body {
   color: rgb(100, 100, 100);
 }
 
+/* =============================================================================
+   Logo overlay
+   ============================================================================= */
+
+.logoverlay {
+  width: 150px;
+  height: auto;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
 
 /* =============================================================================
    TOAST (mensajes temporales)
@@ -823,6 +834,14 @@ body {
     /* encima de la barra de guardar */
     right: 8px;
   }
+
+  .logoverlay {
+    right: auto;
+    top: auto;
+    bottom: 10px;
+    left: 10px;
+    width: 100px;
+  }
 }
 
 
@@ -883,5 +902,9 @@ body {
   .data-btn {
     font-size: 10px;
     padding: 5px 8px;
+  }
+
+  .logoverlay {
+    display: hidden;
   }
 }
