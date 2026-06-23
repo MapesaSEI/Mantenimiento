@@ -689,8 +689,8 @@ body {
 
 .action-bar {
   position: fixed;
-  right: 16px;
-  bottom: 16px;
+  left: 15px;
+  bottom: 15px;
   z-index: 50;
   display: none;
   gap: 10px;
